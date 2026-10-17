@@ -16,6 +16,7 @@ int main() {
     do {
         cout << endl << "--- Komponen Baru ---" << endl;
 
+   // Input nama komponen (boleh berspasi, tidak boleh kosong)
         cout << "Nama komponen          : ";
         getline(cin, namaKomponen);
         while (namaKomponen.empty()) {
@@ -24,6 +25,7 @@ int main() {
             getline(cin, namaKomponen);
         }
 
+    // Input anggaran rencana (harus angka dan lebih dari 0)
         cout << "Anggaran rencana (Rp)  : ";
         cin >> anggaranRencana;
         while (cin.fail() || anggaranRencana <= 0) {
@@ -34,6 +36,7 @@ int main() {
             cin >> anggaranRencana;
         }
 
+     // Input realisasi (harus angka dan tidak boleh negatif)
         cout << "Realisasi (Rp)         : ";
         cin >> realisasi;
         while (cin.fail() || realisasi < 0) {
@@ -44,16 +47,19 @@ int main() {
             cin >> realisasi;
         }
 
+      // Hitung selisih dan persentase penyimpangan (dari anggaran rencana)
         selisih = realisasi - anggaranRencana;
         persenPenyimpangan = (selisih / anggaranRencana) * 100;
         keterangan = "-";
-
+    
+    // Tentukan status dan keterangan
         if (realisasi < anggaranRencana) {
             status = "Hemat";
         } else if (realisasi == anggaranRencana) {
             status = "Tepat";
         } else {
             status = "Melebihi Anggaran";
+            // Selisih <= 10% dari anggaran (ditulis tanpa pembagian)
             if (selisih * 100 <= anggaranRencana * 10) {
                 keterangan = "Perlu Evaluasi";
             } else {
@@ -61,6 +67,7 @@ int main() {
             }
         }
 
+    // Tampilkan rincian hasil pemeriksaan
         cout << endl << "--- Hasil Pemeriksaan ---" << endl;
         cout << "Komponen               : " << namaKomponen << endl;
         cout << "Anggaran rencana       : Rp" << anggaranRencana << endl;
@@ -70,12 +77,14 @@ int main() {
         cout << "Status                 : " << status << endl;
         cout << "Keterangan             : " << keterangan << endl;
 
+    // Tanya lanjut atau selesai (harus y atau t)
         cout << endl << "Periksa komponen lain? (y/t): ";
         cin >> pilihan;
         while (pilihan != "y" && pilihan != "Y" && pilihan != "t" && pilihan != "T") {
             cout << "Pilihan tidak valid. Ketik y atau t: ";
             cin >> pilihan;
         }
+           // Buang Enter sisa agar getline berikutnya tidak membaca baris kosong
         cin.ignore(1000, '\n');
 
     } while (pilihan == "y" || pilihan == "Y");
