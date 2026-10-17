@@ -75,7 +75,6 @@ Untuk memperjelas proses perhitungan, digunakan asumsi berikut:
 3. Kelebihan anggaran tepat 10% termasuk kategori Perlu Evaluasi.
 4. Keterangan Perlu Evaluasi atau Peringatan hanya diberikan ketika realisasi pengeluaran melebihi anggaran rencana.
 5. Persentase penyimpangan dihitung berdasarkan anggaran rencana setiap komponen.
-6. Nama komponen ditulis satu kata tanpa spasi (misalnya Konsumsi atau Sewa_Gedung).
 7. Angka anggaran rencana dan realisasi pengeluaran ditulis tanpa titik atau koma pemisah ribuan.
 
 ## 4. Analisis Data Modul A
@@ -86,7 +85,7 @@ Analisis data digunakan untuk menentukan data yang dimasukkan, proses pengolahan
 
 Input yang dibutuhkan:
 
-1. **Nama Komponen** adalah nama kebutuhan atau pengeluaran kegiatan mahasiswa yang ditulis satu kata, misalnya konsumsi, dekorasi, perlengkapan, dll.
+1. **Nama Komponen** adalah nama kebutuhan atau pengeluaran kegiatan mahasiswa, misalnya konsumsi, dekorasi, perlengkapan, dll.
 2. **Anggaran Rencana** adalah jumlah dana yang direncanakan untuk komponen.
 3. **Realisasi Pengeluaran** adalah jumlah dana yang dikeluarkan untuk komponen.
 4. **Pilihan Lanjut atau Selesai** adalah pilihan pengguna untuk memasukkan komponen berikutnya atau mengakhiri proses pemeriksaan.
@@ -95,7 +94,7 @@ Input yang dibutuhkan:
 
 Program melakukan proses berikut:
 
-1. Pengguna memasukkan nama komponen.
+1. Pengguna memasukkan nama komponen. jika kosong, program meminta input ulang.
 2. Pengguna memasukkan anggaran rencana.
 3. Pengguna memasukkan realisasi pengeluaran.
 4. Memeriksa validitas data segera setelah dimasukkan; jika tidak valid, program meminta input ulang sebelum lanjut ke langkah berikutnya.
@@ -151,9 +150,10 @@ Hasil pemeriksaan yang ditampilkan untuk setiap komponen adalah:
 
 Program perlu memeriksa input sebelum melakukan perhitungan. Ketentuan penanganannya adalah:
 
-1. Anggaran rencana harus berupa angka yang lebih besar dari nol.
-2. Realisasi pengeluaran harus berupa angka yang tidak negatif, dan nilai nol diperbolehkan.
-3. Pilihan untuk melanjutkan atau mengakhiri proses harus berupa y atau t.
+1. Nama komponen tidak boleh kosong.
+2. Anggaran rencana harus berupa angka yang lebih besar dari nol.
+3. Realisasi pengeluaran harus berupa angka yang tidak negatif, dan nilai nol diperbolehkan.
+4. Pilihan untuk melanjutkan atau mengakhiri proses harus berupa y atau t.
 
 Jika input tidak valid, program menampilkan pesan kesalahan dan meminta pengguna memasukkan data yang benar sebelum melanjutkan pemeriksaan. Program tidak berhenti secara tidak wajar ketika menerima input yang salah, termasuk ketika yang dimasukkan berupa huruf pada kolom angka.
 
@@ -161,7 +161,7 @@ Jika input tidak valid, program menampilkan pesan kesalahan dan meminta pengguna
 
 | Input | Process | Output |
 |---|---|---|
-| Nama komponen | Menerima nama komponen yang ditulis satu kata | Nama komponen |
+| Nama komponen | Memeriksa apakah nama komponen telah diisi | Nama komponen |
 | Anggaran rencana | Memeriksa apakah nilai berupa angka dan lebih besar dari nol | Anggaran rencana yang valid |
 | Realisasi pengeluaran | Memeriksa apakah nilai berupa angka dan tidak negatif | Realisasi pengeluaran yang valid |
 | Input tidak valid | Menolak data dan meminta pengguna memasukkan ulang | Pesan kesalahan dan permintaan input ulang |
