@@ -1,3 +1,4 @@
+```text
 ALGORITMA PemeriksaanAnggaranModulA
 
 DEKLARASI
@@ -62,3 +63,4 @@ MULAI
 
     TAMPILKAN "Proses pemeriksaan selesai"
 SELESAI
+```
